@@ -11,7 +11,7 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.E
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.ApiException;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.ErrorCategory;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.EmployeeEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 
 import org.springframework.stereotype.Component;
 

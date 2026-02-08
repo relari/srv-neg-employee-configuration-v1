@@ -6,10 +6,10 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Con
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Credential;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Document;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.CompanyEntity;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.ContactEntity;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.CredentialEntity;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.EmployeeEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.CompanyEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.ContactEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.CredentialEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.JobTitleCategory;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.Utility;
 

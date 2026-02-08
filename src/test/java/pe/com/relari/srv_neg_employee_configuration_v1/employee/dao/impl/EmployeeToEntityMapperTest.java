@@ -3,7 +3,7 @@ package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.impl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.EmployeeEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.TestMapper;
 
 import org.junit.jupiter.api.BeforeEach;

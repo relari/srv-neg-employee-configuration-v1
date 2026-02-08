@@ -6,7 +6,7 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Con
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Credential;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Document;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity.EmployeeEntity;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 
 import java.time.LocalDateTime;
 

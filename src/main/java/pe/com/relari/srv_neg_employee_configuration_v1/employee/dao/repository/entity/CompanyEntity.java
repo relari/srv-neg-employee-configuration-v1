@@ -1,4 +1,4 @@
-package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity;
+package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

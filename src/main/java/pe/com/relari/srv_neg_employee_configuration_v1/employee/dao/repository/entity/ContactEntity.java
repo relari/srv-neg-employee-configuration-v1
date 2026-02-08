@@ -1,4 +1,4 @@
-package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.entity;
+package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,21 +13,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "Credential")
-public class CredentialEntity {
+@Table(name = "CONTACT")
+public class ContactEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
 //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "empresaId",referencedColumnName = "id")
+//    @JoinColumn(name = "empresaId", referencedColumnName = "id")
 //    private EmployeeEntity employee;
 
-    @Column(name = "username", nullable = false)
-    private String username;
+    @Column(name = "email", length = 50, nullable = false)
+    private String email;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "phoneNumber", length = 9, nullable = false)
+    private String phoneNumber;
 
 }
