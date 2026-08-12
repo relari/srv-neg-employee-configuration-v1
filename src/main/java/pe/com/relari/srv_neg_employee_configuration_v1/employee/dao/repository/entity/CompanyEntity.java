@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.JobTitleCategory;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Data
 @Builder

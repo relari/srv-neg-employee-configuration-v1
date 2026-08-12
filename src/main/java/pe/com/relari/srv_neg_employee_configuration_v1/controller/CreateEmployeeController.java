@@ -1,13 +1,13 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.controller;
 
-import io.reactivex.Completable;
-import io.reactivex.Single;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.model.ErrorResponse;
+import lombok.RequiredArgsConstructor;
+import pe.com.relari.commons.model.error.ErrorResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.EmployeeRequest;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.service.EmployeeService;
 
@@ -15,14 +15,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(path = "${application.api.path}")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CreateEmployeeController {
 
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Operation(
             summary = "Guarda al empleado",
@@ -41,7 +41,7 @@ public class CreateEmployeeController {
                             )
                     )
             })
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Completable save(@RequestBody @Valid EmployeeRequest employeeRequest) {
         return Single.fromCallable(() -> RequestToEmployeeMapper.mapEmployee(employeeRequest))

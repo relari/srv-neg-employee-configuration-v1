@@ -1,6 +1,7 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.impl;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import pe.com.relari.commons.util.Utility;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Company;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Contact;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Credential;
@@ -11,7 +12,6 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.e
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.CredentialEntity;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.JobTitleCategory;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.Utility;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -19,10 +19,10 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EmployeeToEntityMapper {
 
-    PasswordEncoder passwordEncoder;
+//  private final PasswordEncoder passwordEncoder;
 
     /**
      * Mapea la entidad al empleado.
@@ -114,9 +114,11 @@ public class EmployeeToEntityMapper {
             .salary(employee.getCompany().getSalary())
 
             .username(username)
-            .password(passwordEncoder.encode(
-                    Utility.buildPassword(username, employee.getGender().name())
-            ))
+            .password(Utility.buildPassword(username, employee.getGender().name())
+            )
+//            .password(passwordEncoder.encode(
+//                    Utility.buildPassword(username, employee.getGender().name())
+//            ))
 
             .build();
   }
@@ -134,9 +136,12 @@ public class EmployeeToEntityMapper {
       return CredentialEntity.builder()
 //              .employee(mapEmployeeEntity(employee))
               .username(username)
-              .password(passwordEncoder.encode(
+              .password(
                       Utility.buildPassword(username, jobTitleCategory.name())
-              ))
+              )
+//              .password(passwordEncoder.encode(
+//                      Utility.buildPassword(username, jobTitleCategory.name())
+//              ))
               .build();
   }
 

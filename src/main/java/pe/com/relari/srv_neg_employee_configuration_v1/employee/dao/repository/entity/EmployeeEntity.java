@@ -1,6 +1,6 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

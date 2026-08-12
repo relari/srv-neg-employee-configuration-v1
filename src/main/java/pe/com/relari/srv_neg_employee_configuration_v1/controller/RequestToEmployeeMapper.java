@@ -1,9 +1,8 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.controller;
 
-import static java.lang.Boolean.TRUE;
+import static pe.com.relari.commons.constant.Constants.ACTIVE;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import pe.com.relari.commons.util.DateUtil;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.CompanyResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.ContactResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.DocumentResponse;
@@ -14,10 +13,10 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Con
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Document;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.GenderCategory;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.Utility;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RequestToEmployeeMapper {
+
+  private RequestToEmployeeMapper() {}
 
   static Employee mapEmployee(EmployeeRequest employeeRequest) {
     return Employee.builder()
@@ -25,11 +24,11 @@ public class RequestToEmployeeMapper {
             .fatherLastName(employeeRequest.getFatherLastName())
             .motherLastName(employeeRequest.getMotherLastName())
             .gender(GenderCategory.valueOf(employeeRequest.getGender()))
-            .birthdate(Utility.mapLocalDate(employeeRequest.getBirthdate()))
+            .birthdate(DateUtil.parseLocalDate(employeeRequest.getBirthdate()))
             .document(new Document(employeeRequest.getDocument()))
             .contact(new Contact(employeeRequest.getContactInfo()))
             .company(new Company(employeeRequest.getCompany()))
-            .isActive(TRUE)
+            .isActive(ACTIVE)
             .build();
   }
   static EmployeeResponse mapPersonResponse(Employee employee) {
@@ -38,7 +37,7 @@ public class RequestToEmployeeMapper {
             .fatherLastName(employee.getFatherLastName())
             .motherLastName(employee.getMotherLastName())
             .gender(employee.getGender().name())
-            .birthdate(Utility.formatDate(employee.getBirthdate()))
+            .birthdate(DateUtil.formatDate(employee.getBirthdate()))
             .document(new DocumentResponse(employee.getDocument()))
             .contact(new ContactResponse(employee.getContact()))
             .company(new CompanyResponse(employee.getCompany()))

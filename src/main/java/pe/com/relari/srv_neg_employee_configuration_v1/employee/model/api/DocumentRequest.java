@@ -1,15 +1,15 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.Constants;
+import pe.com.relari.commons.constant.Regex;
 
 @Getter
 @Setter
@@ -17,14 +17,14 @@ public class DocumentRequest {
     
     @Schema(
           description = "Representa el tipo de documento del empleado",
-          name = "documentType",
+          name = "type",
           implementation = String.class,
-          pattern = Constants.REGEXP_TIPO_DOCUMENTO,
+          pattern = Regex.REGEXP_DOCUMENT_TYPE,
           example = "DNI",
-          required = true)
+          requiredMode = Schema.RequiredMode.REQUIRED)
   @NotNull
   @NotBlank
-  @Pattern(regexp = Constants.REGEXP_TIPO_DOCUMENTO)
+  @Pattern(regexp = Regex.REGEXP_DOCUMENT_TYPE)
   @JsonProperty("type")
   private String type;
 
@@ -33,10 +33,10 @@ public class DocumentRequest {
           name = "number",
           implementation = String.class,
           example = "12345678",
-          required = true)
+          requiredMode = Schema.RequiredMode.REQUIRED)
   @NotNull
   @NotBlank
-  @JsonProperty("documentNumber")
+  @JsonProperty("number")
   private String number;
 
 }

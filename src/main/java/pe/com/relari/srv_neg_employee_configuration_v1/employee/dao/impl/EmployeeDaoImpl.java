@@ -1,15 +1,14 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.impl;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
-import lombok.AllArgsConstructor;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import pe.com.relari.commons.exception.ApiException;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.EmployeeDao;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.EmployeeRepository;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.ApiException;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.ErrorCategory;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.entity.EmployeeEntity;
 
@@ -23,7 +22,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 class EmployeeDaoImpl implements EmployeeDao {
 
   private final EmployeeRepository employeeRepository;
@@ -47,7 +46,7 @@ class EmployeeDaoImpl implements EmployeeDao {
         .subscribeOn(Schedulers.io())
         .onErrorResumeNext(throwable ->
                 Single.error(
-                        ApiException.of(ErrorCategory.EMPLOYEE_NOT_SAVE, throwable)
+                        new ApiException("EMPLOYEE_NOT_SAVE", throwable)
                 )
         )
         .doOnSubscribe(disposable ->
@@ -75,7 +74,7 @@ class EmployeeDaoImpl implements EmployeeDao {
 
   private EmployeeEntity searchById(Integer id) {
     return employeeRepository.findById(id)
-            .orElseThrow(() -> ApiException.of(ErrorCategory.EMPLOYEE_NOT_FOUND));
+            .orElseThrow(() -> new ApiException("EMPLOYEE_NOT_FOUND"));
   }
 
   @Override
@@ -93,13 +92,29 @@ class EmployeeDaoImpl implements EmployeeDao {
 
   private EmployeeEntity searchByUsername(String username) {
     return employeeRepository.findByUsername(username)
-            .orElseThrow(() -> ApiException.of(ErrorCategory.EMPLOYEE_NOT_FOUND));
+            .orElseThrow(() -> new ApiException("EMPLOYEE_NOT_FOUND"));
   }
 
   @Override
   public Completable deleteById(Integer id) {
     return Completable.complete()
             .doOnComplete(() -> employeeRepository.deleteById(id));
+  }
+
+  @Override
+  public Completable deleteAll() {
+    return Completable.complete()
+            .doOnComplete(employeeRepository::deleteAll);
+  }
+
+  @Override
+  public Completable inactivateById(Integer id) {
+    return null;
+  }
+
+  @Override
+  public Completable activateById(Integer id) {
+    return null;
   }
 
 }

@@ -1,8 +1,8 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.service;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.Single;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
 
 /**
@@ -23,4 +23,11 @@ public interface EmployeeService {
 
   Completable deleteByUsername(String username);
 
+  Completable deleteById(Integer id);
+
+  Completable deleteAll();
+
+  Completable inactivateById(Integer id);
+
+  Completable activateById(Integer id);
 }

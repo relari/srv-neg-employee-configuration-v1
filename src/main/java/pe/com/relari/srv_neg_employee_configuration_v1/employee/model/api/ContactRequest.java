@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.Constants;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import pe.com.relari.commons.constant.Regex;
 
 @Getter
 @Setter
@@ -23,7 +23,7 @@ public class ContactRequest {
             name = "email",
             implementation = String.class,
             example = "contact@email.com",
-            required = true)
+            requiredMode = Schema.RequiredMode.REQUIRED)
     @Email
     @NotNull
     @NotBlank
@@ -33,12 +33,12 @@ public class ContactRequest {
             description = "Representa el numero telefonico del empleado",
             name = "phoneNumber",
             implementation = String.class,
-            pattern = Constants.REGEXP_PHONE_NUMBER,
+            pattern = Regex.REGEXP_PHONE_NUMBER,
             example = "987654321",
-            required = true)
+            requiredMode = Schema.RequiredMode.REQUIRED)
     @NotNull
     @NotBlank
-    @Pattern(regexp = Constants.REGEXP_PHONE_NUMBER)
+    @Pattern(regexp = Regex.REGEXP_PHONE_NUMBER)
     private String phoneNumber;
 
 }

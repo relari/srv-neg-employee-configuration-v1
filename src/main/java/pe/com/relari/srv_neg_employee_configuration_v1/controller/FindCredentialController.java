@@ -1,14 +1,14 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.controller;
 
-import io.reactivex.Single;
+import io.reactivex.rxjava3.core.Single;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.model.ErrorResponse;
+import lombok.RequiredArgsConstructor;
+import pe.com.relari.commons.model.error.ErrorResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.CredentialResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.service.EmployeeService;
 
@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "${application.api.path}")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class FindCredentialController {
 
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Operation(
             summary = "Obtiene la informacion de un empleado.",
@@ -62,8 +62,7 @@ public class FindCredentialController {
                             )
                     )
             })
-    @GetMapping(path = "/{username}/credential")
-
+    @GetMapping(path = "/{username}/credential", produces = MediaType.APPLICATION_JSON_VALUE)
     public Single<CredentialResponse> findEmployeeByUsername(
             @PathVariable("username") String username) {
         return employeeService.findByUsername(username)

@@ -1,14 +1,14 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.controller;
 
-import io.reactivex.Completable;
+import io.reactivex.rxjava3.core.Completable;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import lombok.AllArgsConstructor;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.exception.model.ErrorResponse;
+import lombok.RequiredArgsConstructor;
+import pe.com.relari.commons.model.error.ErrorResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api.EmployeeResponse;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.service.EmployeeService;
 
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "${application.api.path}")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DeleteEmployeeController {
 
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Operation(
             summary = "Obtiene la informacion de un empleado.",

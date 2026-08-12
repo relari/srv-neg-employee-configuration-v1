@@ -1,8 +1,8 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.impl;
 
-import io.reactivex.Completable;
-import io.reactivex.Single;
-import lombok.AllArgsConstructor;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
+import lombok.RequiredArgsConstructor;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.CredentialDao;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.dao.repository.CredentialRepository;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain.Employee;
@@ -11,11 +11,11 @@ import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.JobTitleCat
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CredentialDaoImpl implements CredentialDao {
 
-    CredentialRepository credentialRepository;
-    EmployeeToEntityMapper mapper;
+    private final CredentialRepository credentialRepository;
+    private final EmployeeToEntityMapper mapper;
 
     @Override
     public Completable save(Employee employee, JobTitleCategory jobTitleCategory) {
