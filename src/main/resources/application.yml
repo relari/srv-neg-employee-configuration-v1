@@ -3,6 +3,9 @@ spring:
     name: 'srv-neg-employee-configuration-v1'
   profiles.active: local
 
+  jackson:
+    default-property-inclusion: non_null
+
 #  config:
 #    import: env-dev.yml
 
@@ -148,3 +151,4 @@ info:
 logging:
   level:
     pe.com.relari.srv_neg_employee_configuration_v1: TRACE
+    pe.com.relari.fwk.spring.reactive.handler.error.handler: TRACE
