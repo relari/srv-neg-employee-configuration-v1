@@ -1,5 +1,6 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ public class CompanyResponse {
             name = "jobTitle",
             implementation = String.class,
             example = "Asistente")
+    @JsonProperty("jobTitle")
     private String jobTitle;
 
     @Schema(
@@ -21,6 +23,7 @@ public class CompanyResponse {
             name = "salary",
             implementation = Double.class,
             example = "1500")
+    @JsonProperty("salary")
     private Double salary;
 
     public CompanyResponse(Company company) {

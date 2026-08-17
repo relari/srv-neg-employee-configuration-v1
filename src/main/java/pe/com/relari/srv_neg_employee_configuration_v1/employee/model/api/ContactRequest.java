@@ -1,5 +1,6 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,9 @@ public class ContactRequest {
             example = "contact@email.com",
             requiredMode = Schema.RequiredMode.REQUIRED)
     @Email
-    @NotNull
-    @NotBlank
+    @NotNull(message = "{application.message.contact.email.notNull}")
+    @NotBlank(message = "{application.message.contact.email.notBlank}")
+    @JsonProperty("email")
     private String email;
 
     @Schema(
@@ -36,9 +38,10 @@ public class ContactRequest {
             pattern = Regex.REGEXP_PHONE_NUMBER,
             example = "987654321",
             requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotNull
-    @NotBlank
-    @Pattern(regexp = Regex.REGEXP_PHONE_NUMBER)
+    @NotNull(message = "{application.message.contact.phoneNumber.notNull}")
+    @NotBlank(message = "{application.message.contact.phoneNumber.notBlank}")
+    @Pattern(regexp = Regex.REGEXP_PHONE_NUMBER, message = "{application.message.contact.phoneNumber.pattern}")
+    @JsonProperty("phoneNumber")
     private String phoneNumber;
 
 }

@@ -27,6 +27,7 @@ public class EmployeeResponse {
           name = "firstName",
           example = "Ricardo",
           implementation = String.class)
+  @JsonProperty("firstName")
   private String firstName;
 
   @Schema(
@@ -34,6 +35,7 @@ public class EmployeeResponse {
           name = "fatherLastName",
           example = "Lozano",
           implementation = String.class)
+  @JsonProperty("fatherLastName")
   private String fatherLastName;
 
   @Schema(
@@ -41,6 +43,7 @@ public class EmployeeResponse {
           name = "motherLastName",
           example = "Lozano",
           implementation = String.class)
+  @JsonProperty("motherLastName")
   private String motherLastName;
 
   @Schema(
@@ -48,6 +51,7 @@ public class EmployeeResponse {
           name = "gender",
           example = "M",
           implementation = String.class)
+  @JsonProperty("gender")
   private String gender;
 
   @Schema(
@@ -55,12 +59,16 @@ public class EmployeeResponse {
           name = "birthdate",
           example = "03-05-1995",
           implementation = String.class)
+  @JsonProperty("birthdate")
   private String birthdate;
 
+  @JsonProperty("document")
   private DocumentResponse document;
 
+  @JsonProperty("contact")
   private ContactResponse contact;
 
+  @JsonProperty("company")
   private CompanyResponse company;
 
 }

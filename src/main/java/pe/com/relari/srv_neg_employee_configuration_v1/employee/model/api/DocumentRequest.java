@@ -22,9 +22,9 @@ public class DocumentRequest {
           pattern = Regex.REGEXP_DOCUMENT_TYPE,
           example = "DNI",
           requiredMode = Schema.RequiredMode.REQUIRED)
-  @NotNull
-  @NotBlank
-  @Pattern(regexp = Regex.REGEXP_DOCUMENT_TYPE)
+  @NotNull(message = "{application.message.document.type.notNull}")
+  @NotBlank(message = "{application.message.document.type.notBlank}")
+  @Pattern(regexp = Regex.REGEXP_DOCUMENT_TYPE, message = "{application.message.document.type.pattern}")
   @JsonProperty("type")
   private String type;
 
@@ -34,8 +34,9 @@ public class DocumentRequest {
           implementation = String.class,
           example = "12345678",
           requiredMode = Schema.RequiredMode.REQUIRED)
-  @NotNull
-  @NotBlank
+  @NotNull(message = "{application.message.document.number.notNull}")
+  @NotBlank(message = "{application.message.document.number.notBlank}")
+  @Pattern(regexp = Regex.REGEXP_DOCUMENT_NUMBER, message = "{application.message.document.number.pattern}")
   @JsonProperty("number")
   private String number;
 
