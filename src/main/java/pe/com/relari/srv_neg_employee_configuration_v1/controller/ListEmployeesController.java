@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <b>Class:</b> GetEmployeesController.</br>
+ * <b>Class:</b> ListEmployeesController.</br>
  * @author Renzo Lavado Rivas.
  * @version 1.0.0
  */
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "${application.api.path}")
 @RequiredArgsConstructor
-class GetEmployeesController {
+class ListEmployeesController {
 
   private final EmployeeService employeeService;
 
