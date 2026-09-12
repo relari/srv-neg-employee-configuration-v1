@@ -1,5 +1,6 @@
 package pe.com.relari.srv_neg_employee_configuration_v1.employee.model.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import lombok.ToString;
-import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.DocumentTypeCategory;
+import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.EmployeeDeserializer;
 import pe.com.relari.srv_neg_employee_configuration_v1.employee.util.GenderCategory;
 
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@JsonDeserialize(using = EmployeeDeserializer.class)
 public class Employee {
 
   private Integer idEmployee;

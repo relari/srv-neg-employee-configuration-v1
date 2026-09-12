@@ -3,12 +3,14 @@
   "fatherLastName": "Lavado",
   "motherLastName": "Rivas",
   "gender": "M",
-  "birthdate": "03-05-1995",
-  "documentType": "DNI",
-  "documentNumber": "123456789",
+  "birthdate": "03/05/1995",
+  "document": {
+    "type": "DNI",
+    "number": "00000001"
+  },
   "contactInfo": {
     "email" :"renzolavador@gmail.com",
-    "phoneNumber": "979896723"
+    "phoneNumber": "900000001"
   },
   "company" : {
     "jobTitle": "DEVELOPER",

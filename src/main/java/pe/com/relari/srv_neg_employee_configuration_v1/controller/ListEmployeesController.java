@@ -47,7 +47,7 @@ class ListEmployeesController {
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public Observable<EmployeeResponse> listOfEmployees() {
     return this.employeeService.findAll()
-            .map(RequestToEmployeeMapper::mapPersonResponse);
+            .map(RequestToEmployeeMapper::mapEmployeeResponse);
   }
 
 }

@@ -66,7 +66,7 @@ public class FindEmployeeController {
     public Single<EmployeeResponse> findEmployeeByUsername(
             @PathVariable("username") String username) {
         return employeeService.findByUsername(username)
-                .map(RequestToEmployeeMapper::mapPersonResponse);
+                .map(RequestToEmployeeMapper::mapEmployeeResponse);
     }
 
 }

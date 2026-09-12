@@ -1,0 +1,36 @@
+[
+  {
+    "firstName": "Renzo",
+    "fatherLastName": "Lavado",
+    "motherLastName": "Rivas",
+    "gender": "M",
+    "birthdate": "03/05/1995",
+    "documentType": "DNI",
+    "documentNumber": "00000001",
+    "contactInfo": {
+      "email" :"renzolavado@gmail.com",
+      "phoneNumber": "900000001"
+    },
+    "company" : {
+      "jobTitle": "DEVELOPER",
+      "salary": 2700.0
+    }
+  },
+  {
+    "firstName": "Luis",
+    "fatherLastName": "Lecaros",
+    "motherLastName": "Rivas",
+    "gender": "M",
+    "birthdate": "15/07/1994",
+    "documentType": "DNI",
+    "documentNumber": "00000002",
+    "contactInfo": {
+      "email" :"luislecaros@gmail.com",
+      "phoneNumber": "900000002"
+    },
+    "company" : {
+      "jobTitle": "MANAGER",
+      "salary": 5000.0
+    }
+  }
+]

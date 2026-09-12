@@ -124,7 +124,7 @@ springdoc:
 
 eureka:
   instance:
-    instance-id: ${spring.application.name}:@project.version@
+    instance-id: ${spring.application.name}:${application.info.version}
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:8084/eureka/}

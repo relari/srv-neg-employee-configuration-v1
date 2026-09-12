@@ -31,7 +31,7 @@ public class RequestToEmployeeMapper {
             .isActive(ACTIVE)
             .build();
   }
-  static EmployeeResponse mapPersonResponse(Employee employee) {
+  static EmployeeResponse mapEmployeeResponse(Employee employee) {
     return EmployeeResponse.builder()
             .firstName(employee.getFirstName())
             .fatherLastName(employee.getFatherLastName())
